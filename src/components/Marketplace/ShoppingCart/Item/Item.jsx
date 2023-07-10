@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 
-import ItemQuantity from "../../../shared/ItemQuantity";
+import ItemQuantity from "../../../shared/ItemQuantity/ItemQuantity";
 
 const StyledItem = styled.div`
   padding-bottom: 1rem;

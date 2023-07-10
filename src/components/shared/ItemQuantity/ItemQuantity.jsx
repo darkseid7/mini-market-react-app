@@ -14,7 +14,10 @@ const StyledItemQuantity = styled.div`
 
 const ItemQuantity = ({ children, width }) => {
   return (
-    <StyledItemQuantity width={width}>
+    <StyledItemQuantity
+      data-testid="item-quantity"
+      width={width}
+    >
       <span>{children}</span>
     </StyledItemQuantity>
   );

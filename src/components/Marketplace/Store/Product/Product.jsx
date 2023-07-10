@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { useSelector } from "react-redux";
 
 import { media } from "../../../../styled-components/Global";
-import ItemQuantity from "../../../shared/ItemQuantity";
+import ItemQuantity from "../../../shared/ItemQuantity/ItemQuantity";
 import ProductInfo from "../../../shared/ProductInfo/ProductInfo";
 
 const StyledProduct = styled.li`

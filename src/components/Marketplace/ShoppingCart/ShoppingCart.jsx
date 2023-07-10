@@ -10,7 +10,7 @@ const StyledShoppingCart = styled.div`
   width: 40%;
 
   ${media.phone} {
-    width: 100%;
+    width: 92%;
     height: 100%;
     position: absolute;
     z-index: 2;
