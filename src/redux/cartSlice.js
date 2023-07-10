@@ -35,13 +35,11 @@ const cartSlice = createSlice({
 
       if (productToRemove) {
         if (productToRemove.quantity <= quantityToRemove) {
-          // Eliminar el producto por completo si la cantidad a remover es mayor o igual a la cantidad actual
           state.totalPrice -= productToRemove.price * productToRemove.quantity;
           state.products = state.products.filter(
             (product) => product.id !== productId
           );
         } else {
-          // Reducir la cantidad del producto si la cantidad a remover es menor que la cantidad actual
           productToRemove.quantity -= quantityToRemove;
           state.totalPrice -= productToRemove.price * quantityToRemove;
         }

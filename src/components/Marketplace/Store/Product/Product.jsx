@@ -1,7 +1,9 @@
 import styled, { css } from "styled-components";
 import { useSelector } from "react-redux";
 
+import { media } from "../../../../styled-components/Global";
 import ItemQuantity from "../../../shared/ItemQuantity";
+import ProductInfo from "../../../shared/ProductInfo/ProductInfo";
 
 const StyledProduct = styled.li`
   position: relative;
@@ -16,6 +18,10 @@ const StyledProduct = styled.li`
     css`
       border: 1px solid #9c1dae;
       box-shadow: rgba(156, 29, 174, 0.3) 0px 0px 2px 2px;
+      ${media.phone} {
+        border: 1px solid #f2e8f3;
+        box-shadow: none;
+      }
     `}
 
   .item-quantity {
@@ -24,9 +30,33 @@ const StyledProduct = styled.li`
     left: 4px;
   }
 
-  a {
-    img {
-      width: 100%;
+  .product-image {
+    a {
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .product-info {
+    display: none;
+  }
+
+  ${media.phone} {
+    .product-image {
+      text-align: center;
+
+      a {
+        img {
+          max-width: 50%;
+        }
+      }
+    }
+
+    .product-info {
+      padding: 1rem;
+      display: block;
+      border-top: 1px solid #f2e8f3;
     }
   }
 `;
@@ -57,12 +87,23 @@ const Product = ({
           <ItemQuantity width={28}>{quantityInCart}</ItemQuantity>
         </div>
       )}
-      <a>
-        <img
-          src={image}
-          alt={name}
+      <div className="product-image">
+        <a>
+          <img
+            src={image}
+            alt={name}
+          />
+        </a>
+      </div>
+      <div className="product-info">
+        <ProductInfo
+          id={id}
+          image={image}
+          name={name}
+          price={price}
+          description={description}
         />
-      </a>
+      </div>
     </StyledProduct>
   );
 };

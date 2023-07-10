@@ -77,6 +77,7 @@ const CartIndicator = () => {
       <div
         onClick={handleShowShoppingCart}
         className="cart-container"
+        data-testid="cart-container"
       >
         <div className="cart-value">
           <BsCart4

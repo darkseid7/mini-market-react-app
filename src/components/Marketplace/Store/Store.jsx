@@ -16,12 +16,19 @@ const StyledStore = styled.div`
     padding: 0;
     column-count: 3;
     column-gap: 10px;
+  }
 
-    ${media.tablet_s} {
+  ${media.tablet_s} {
+    ul {
       column-count: 2;
     }
+  }
 
-    ${media.phone} {
+  ${media.phone} {
+    width: 100%;
+    margin-right: 0;
+
+    ul {
       column-count: 1;
     }
   }

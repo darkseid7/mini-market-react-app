@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 import { media } from "../styled-components/Global";
 
 import Header from "../components/Header/Header";
 import MarketPlace from "../components/Marketplace/MarketPlace";
 
-const StyledHome = styled.div`
+const StyledHome = styled(motion.div)`
   max-width: 800px;
   margin: 2rem auto;
 
@@ -22,7 +23,10 @@ const StyledHome = styled.div`
 
 const Home = () => {
   return (
-    <StyledHome>
+    <StyledHome
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
       <h1>mini market • cart</h1>
       <Header />
       <MarketPlace />

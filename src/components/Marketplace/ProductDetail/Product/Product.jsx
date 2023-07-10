@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import { useSelector, useDispatch } from "react-redux";
-
-import { addToCart, removeFromCart } from "../../../../redux/cartSlice";
+import { useSelector } from "react-redux";
 
 import ItemQuantity from "../../../shared/ItemQuantity";
+import ProductInfo from "../../../shared/ProductInfo/ProductInfo";
 
 const StyledProduct = styled.div`
   position: relative;
@@ -16,7 +15,6 @@ const StyledProduct = styled.div`
 
   .product-image {
     width: 100%;
-    /* height: 200px; */
     text-align: center;
 
     img {
@@ -76,16 +74,7 @@ const StyledProduct = styled.div`
 `;
 
 const Product = ({ selectedProduct }) => {
-  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-
-  const handleRemove = (product) => {
-    dispatch(removeFromCart({ productId: product, quantityToRemove: 1 }));
-  };
-
-  const handleAdd = (product) => {
-    dispatch(addToCart(product));
-  };
 
   if (selectedProduct) {
     const { id, name, image, price, description } = selectedProduct;
@@ -104,18 +93,13 @@ const Product = ({ selectedProduct }) => {
             alt={name}
           />
         </div>
-        <div className="product-name">
-          <span>
-            {name} <span className="price">• ${price} </span>
-          </span>
-          <div className="product-actions">
-            <button onClick={() => handleRemove(id)}>-</button>
-            <button onClick={() => handleAdd(selectedProduct)}>+</button>
-          </div>
-        </div>
-        <div className="product-description">
-          <p>{description}</p>
-        </div>
+        <ProductInfo
+          id={id}
+          name={name}
+          image={image}
+          price={price}
+          description={description}
+        />
       </StyledProduct>
     );
   }
