@@ -1,14 +1,49 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { useSelector } from "react-redux";
 import { BsCart4 } from "react-icons/bs";
 
 import { useDispatch } from "react-redux";
-import { removeAllFromCart } from "../../../redux/cartSlice";
+import {
+  removeAllFromCart,
+  setShowShoppingCart,
+} from "../../../redux/cartSlice";
 
 const StyledCartIndicator = styled.div`
   display: flex;
-  align-items: center;
-  border: 1px solid #9c1dae;
+  .cart-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #9c1dae;
+    cursor: pointer;
+    padding: 0.5rem;
+
+    ${(props) =>
+      props.showShoppingCart
+        ? css`
+            background-color: #f2cffd;
+          `
+        : css`
+            background-color: #9c1dae;
+            .cart-value {
+              span {
+                color: #fff;
+              }
+            }
+          `}
+  }
+
+  .cart-value {
+    padding: 0 0.5rem;
+    display: flex;
+    align-items: center;
+    color: #9c1dae;
+
+    font-weight: bold;
+
+    svg {
+      margin-right: 0.5rem;
+    }
+  }
 
   button {
     background-color: #9c1dae;
@@ -21,48 +56,38 @@ const StyledCartIndicator = styled.div`
 
     &:hover {
       background-color: #cb21ff;
-      color: #9c1dae;
     }
-  }
-`;
-
-const CartValue = styled.div`
-  padding: 0 0.5rem;
-  display: flex;
-  align-items: center;
-  color: #9c1dae;
-  background-color: ${(props) =>
-    props.$singleProduct ? "#9c1dae" : "#f2cffd"};
-
-  font-weight: bold;
-
-  svg {
-    margin-right: 0.5rem;
   }
 `;
 
 const CartIndicator = () => {
   const dispatch = useDispatch();
-  const { totalPrice, products } = useSelector((state) => state.cart);
+  const { totalPrice, showShoppingCart } = useSelector((state) => state.cart);
 
-  console.log(products.length, "jiji");
   const handleRemoveCartProducts = () => {
     dispatch(removeAllFromCart());
   };
 
+  const handleShowShoppingCart = () => {
+    dispatch(setShowShoppingCart(!showShoppingCart));
+  };
+
   return (
-    <StyledCartIndicator>
-      <CartValue
-        singleProduct={products.length === 1 ? "true" : "false"}
-        className="cart-value"
+    <StyledCartIndicator showShoppingCart={showShoppingCart}>
+      <div
+        onClick={handleShowShoppingCart}
+        className="cart-container"
       >
-        <BsCart4
-          fontSize={"1.5rem"}
-          color="#9c1dae"
-        />
-        <span>${totalPrice.toFixed(2)}</span>
-      </CartValue>
-      {products.length > 1 && (
+        <div className="cart-value">
+          <BsCart4
+            fontSize={"1.5rem"}
+            color={showShoppingCart ? "#9c1dae" : "#ffffff"}
+          />
+          <span>${totalPrice.toFixed(2)}</span>
+        </div>
+      </div>
+
+      {showShoppingCart && (
         <button onClick={handleRemoveCartProducts}>X</button>
       )}
     </StyledCartIndicator>

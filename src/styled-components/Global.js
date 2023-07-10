@@ -13,6 +13,12 @@ export const GlobalStyle = createGlobalStyle`
   all: unset;
  }
 
+ 
+  p {
+    color: #9e9e9e;
+  }
+ 
+
 `;
 
 const customMediaQuery = (maxWidth) => `@media (max-width: ${maxWidth}px)`;

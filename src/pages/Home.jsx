@@ -1,4 +1,6 @@
-import { styled } from "styled-components";
+import styled from "styled-components";
+
+import { media } from "../styled-components/Global";
 
 import Header from "../components/Header/Header";
 import MarketPlace from "../components/Marketplace/MarketPlace";
@@ -11,6 +13,10 @@ const StyledHome = styled.div`
     margin-bottom: 2rem;
     text-align: center;
     text-transform: uppercase;
+  }
+
+  ${media.tablet_s} {
+    padding: 0 1rem;
   }
 `;
 

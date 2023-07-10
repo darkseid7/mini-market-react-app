@@ -1,12 +1,10 @@
-import { styled } from "styled-components";
-import { useDispatch } from "react-redux";
-import { addToCart, removeFromCart } from "../../../../redux/cartSlice";
-
+import styled from "styled-components";
 import { useSelector } from "react-redux";
+
+import ItemQuantity from "../../../shared/ItemQuantity";
 
 const StyledItem = styled.div`
   padding-bottom: 1rem;
-  border-bottom: 1px solid #f2e8f3;
 
   p {
     font-size: 1rem;
@@ -17,32 +15,16 @@ const StyledItem = styled.div`
     margin: 0.5rem 0;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid #f2e8f3;
 
-    .item-quantity {
-      width: 37px;
-      height: 37px;
-      margin-right: 0.5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #9c1dae;
-      border-radius: 50%;
-      color: #ffffff;
+    .item-image {
+      margin-left: 1rem;
     }
   }
 `;
 
 const Item = () => {
-  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-
-  const handleRemove = (product) => {
-    dispatch(removeFromCart({ productId: product, quantityToRemove: 1 }));
-  };
-
-  const handleAdd = (product) => {
-    dispatch(addToCart(product));
-  };
 
   return (
     <StyledItem>
@@ -56,19 +38,14 @@ const Item = () => {
               key={id}
               className="item-container"
             >
-              <div className="item-quantity">
-                <span>{quantity}</span>
-              </div>
-              <div className="">
+              <ItemQuantity width={37}>{quantity}</ItemQuantity>
+              <div className="item-image">
                 <img
                   src={image}
                   width={50}
                   height={60}
-                  alt=""
+                  alt={name}
                 />
-                <p>{name}</p>
-                <button onClick={() => handleRemove(id)}>-</button>
-                <button onClick={() => handleAdd(product)}>+</button>
               </div>
             </div>
           );

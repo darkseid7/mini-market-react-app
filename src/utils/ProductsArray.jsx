@@ -15,42 +15,48 @@ export const ProductsArray = [
   {
     id: 1,
     name: "Alqueria",
-    description: "Leche Alqueria deslactozada",
+    description:
+      "Very long multiline paragraph with product description that will take a lot of space. lorem ipsum dolor sit amet...",
     price: 1.25,
     image: alqueria,
   },
   {
     id: 2,
     name: "De Todito",
-    description: "De Todito paketon con 3 ingredientes diferentes",
+    description:
+      "Very long multiline paragraph with product description that will take a lot of space. lorem ipsum dolor sit amet...",
     price: 3,
     image: deTodito,
   },
   {
     id: 3,
     name: "Milo",
-    description: "Milo econopack bebida de deportistas",
+    description:
+      "Very long multiline paragraph with product description that will take a lot of space. lorem ipsum dolor sit amet...",
     price: 2.5,
     image: milo,
   },
   {
     id: 4,
     name: "Zucaritas",
-    description: "Ceral ideal para el desayuno",
+    description:
+      "Very long multiline paragraph with product description that will take a lot of space. lorem ipsum dolor sit amet...",
     price: 4,
     image: zucaritas,
   },
   {
     id: 5,
     name: "Coca-cola",
-    description: "Bebida refrescante Coca - Cola ideal para acompañar la cena",
+    description:
+      "Very long multiline paragraph with product description that will take a lot of space. lorem ipsum dolor sit amet...",
     price: 7.99,
     image: cocaCola,
   },
   {
     id: 6,
     name: "Pepsi",
-    description: "Bebida refrescante Pepsi ideal para acompañar la cena",
+    description:
+      "Very long multiline paragraph with product description that will take a lot of space. lorem ipsum dolor sit amet...",
     price: 7.95,
     image: pepsi,
   },
@@ -58,42 +64,47 @@ export const ProductsArray = [
     id: 7,
     name: "Doritos",
     description:
-      "Doritos tama;o familiar, ideal para el desayuno junto a una pepsi",
+      "Very long multiline paragraph with product description that will take a lot of space. lorem ipsum dolor sit amet...",
     price: 3,
     image: doritos,
   },
   {
     id: 8,
     name: "Mountain Dew",
-    description: "Bebida refrescante ideal para acompañar el almuerzo",
+    description:
+      "Very long multiline paragraph with product description that will take a lot of space. lorem ipsum dolor sit amet...",
     price: 1.5,
     image: mountainDew,
   },
   {
     id: 9,
     name: "Pony maltal",
-    description: "Bebida refrescante ideal para acompañar la cena",
+    description:
+      "Very long multiline paragraph with product description that will take a lot of space. lorem ipsum dolor sit amet...",
     price: 6.15,
     image: ponymalta,
   },
   {
     id: 10,
     name: "Papas Margarita",
-    description: "Papas margarita naturales tama;o familiar",
+    description:
+      "Very long multiline paragraph with product description that will take a lot of space. lorem ipsum dolor sit amet...",
     price: 5,
     image: papasmargarita,
   },
   {
     id: 11,
     name: "Takis",
-    description: "Takis picantes ",
+    description:
+      "Very long multiline paragraph with product description that will take a lot of space. lorem ipsum dolor sit amet...",
     price: 7,
     image: takis,
   },
   {
     id: 12,
     name: "Doritos jalapeño",
-    description: "Bebida refrescante ideal para acompañar la cena",
+    description:
+      "Very long multiline paragraph with product description that will take a lot of space. lorem ipsum dolor sit amet...",
     price: 10,
     image: doritosJalapeno,
   },
